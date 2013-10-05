@@ -1,0 +1,13 @@
+// Place all the styles related to the offres controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+ height:500px;
+ background:pink;
+}

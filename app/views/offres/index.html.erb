@@ -1,0 +1,42 @@
+<h2>index</h2>
+
+
+<ul id="articles">
+
+
+  <% @offres.each do |offre| %>
+     
+    <div class="container">
+
+<!--  <%= image_tag("logo1.jpeg", :alt => "Application Exemple", :class => "round",  :height => "600",  :width => "400") %> -->
+
+<div class="image">
+ <img alt="Application Exemple"  src="/images/<%= offre.photo %>" height="200" width="200"/>
+</div>
+
+<div class="description_index">
+
+ <%= offre.description %>
+ <%= link_to offre.titre, offre_path(offre),class: 'article_title' %>  <!-- envoie lien vers page show avec l'id de l offre -->
+
+</div>
+
+
+ 
+
+<br class="clear" /> 
+
+
+</div>
+
+<% end %>
+
+
+
+    </ul>
+
+
+<%= render partial: 'offres/partial/form' %>
+
+
+

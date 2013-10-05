@@ -1,0 +1,8 @@
+class CreateProfils < ActiveRecord::Migration
+  def change
+    create_table :profils do |t|
+
+      t.timestamps
+    end
+  end
+end

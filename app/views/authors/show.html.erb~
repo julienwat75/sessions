@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @author.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @author.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @author.password %>
+</p>
+
+<p>
+  <strong>Password confirmation:</strong>
+  <%= @author.password_confirmation %>
+</p>
+
+
+<h3>Commentaires:</h3>
+<%= render partial: 'authors/authors/comment', collection: @authors.comments %>
+
+
+
+
+
+
+<%= link_to 'Edit', edit_author_path(@author) %> |
+<%= link_to 'Back', authors_path %>

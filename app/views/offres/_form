@@ -1,0 +1,38 @@
+
+
+
+<%= form_for(@offres) do |f| %>
+  <ul>
+  <% @offres.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :Restaurant %><br />
+    <%= f.text_field :nom_restaurant %>
+  </p>
+  <p>
+    <%= f.label :titre %><br />
+    <%= f.text_field :titre %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :prix_medium %><br />
+    <%= f.text_field :prix_medium %>
+  </p>
+  <p>
+    <%= f.label :prix_large %><br />
+    <%= f.text_field :prix_large %>
+  </p>
+ <p>
+    <%= f.label :photo %><br />
+    <%= f.text_field :photo %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

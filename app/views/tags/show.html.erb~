@@ -1,0 +1,37 @@
+<h1><%= @profils.nom %></h1>
+
+
+
+<p><%= @profils.body %> <%= @comment.profil_id  %>
+
+
+
+<h3>Commentaires:</h3>
+<%= render partial: 'profils/profils/comment', collection: @profils.comments %>
+
+
+
+<%= render partial: 'profils/comments/form' %>
+
+
+ <%= link_to "delete", profil_path(@profils),method: :delete,data: {confirm: "Voulez vous vraiment effacer?"}%>
+
+</p>
+
+
+<p>
+  Tags:
+  <% @profils.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag) %>
+  <% end %>
+</p>
+
+
+
+
+
+<%= link_to "<< Back to Articles List", profils_path %>
+
+<br><br>
+
+<%= link_to "edit", edit_profil_path(@profils) %>

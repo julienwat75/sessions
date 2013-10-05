@@ -1,0 +1,7 @@
+<h1>Articles Tagged with <%= @tag.name %></h1>
+
+<ul>
+  <% @tag.profils.each do |profil| %>
+    <li><%= link_to profil.nom, profil_path(profil) %></li>
+  <% end %>
+</ul>

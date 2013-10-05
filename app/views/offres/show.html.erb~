@@ -1,0 +1,22 @@
+
+
+
+
+
+<h1><%= @offres.titre %></h1>
+
+
+
+<p>
+
+Description: <%= @offres.description %> 
+
+
+</p>
+
+<p>
+
+profil_id: <%= @offres.profil_id %> 
+
+
+</p>

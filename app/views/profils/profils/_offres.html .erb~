@@ -1,0 +1,5 @@
+<div>
+  <h4>Comment by <%= offre.titre %></h4>
+  <p class="Offre"><%= offre.description %></p>
+</div>
+

@@ -1,0 +1,9 @@
+
+
+<%= link_to "Ajouter une proposition", new_offre_path, class: "new_article" %>
+
+
+hello
+
+
+

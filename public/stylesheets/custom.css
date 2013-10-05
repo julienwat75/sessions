@@ -1,0 +1,7 @@
+.round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+  border-radius:         10px;
+ height:500px;
+ background:pink;
+}
