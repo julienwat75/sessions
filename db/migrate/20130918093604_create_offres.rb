@@ -5,7 +5,7 @@ class CreateOffres < ActiveRecord::Migration
       t.text :description
       t.string :nom_restaurant
       t.text :photo
-      t.string :auteur
+      t.string :nom_author
       t.float :prix_medium
       t.float :prix_large
       t.references :profil, index: true

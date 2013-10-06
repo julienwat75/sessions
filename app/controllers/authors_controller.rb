@@ -3,9 +3,19 @@ class AuthorsController < ApplicationController
 
   before_filter :zero_authors_or_authenticated, only: [:new, :create]
 
+  before_filter :no_sessions, only: [:show]
+
+
 def zero_authors_or_authenticated
   if current_user
     redirect_to root_path
+    return false
+  end
+end
+
+def no_sessions
+  unless Author.count == 0 || current_user
+    redirect_to login_path
     return false
   end
 end
@@ -23,6 +33,8 @@ end
     @authors = Author.find(params[:id]) #reccupere l'id de l url
    @comment = Comment.new
   @comment.author_id = @authors.id   # On initialise l'element "profil_id" de l objet "comment" avec l'id du profil
+  #@username=current_user.email
+  @current_user=current_user
 
      
   end
@@ -38,19 +50,21 @@ end
 
   # POST /authors
   # POST /authors.json
-  def create
-    @author = Author.new(author_params)
+   
+def create              # le submit va chercher la methode create
+  @authors = Author.new(author_params)
+  @authors.username = params[:author][:username]  # on reccupere le nom du form
+  @authors.email = params[:author][:email] # on reccupere le body du form 
+  @authors.password = params[:author][:password] # on reccupere le body du form 
+  @authors.password_confirmation = params[:author][:password_confirmation] # on reccupere le body du form 
+  
+  @authors.save   #on sauvegarde
+   redirect_to authors_path     # redirection vers l'index
 
-    respond_to do |format|
-      if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @author }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @author.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+end
+
+
+
 
   # PATCH/PUT /authors/1
   # PATCH/PUT /authors/1.json
@@ -86,4 +100,6 @@ end
     def author_params
       params.require(:author).permit(:username, :email, :password, :password_confirmation)
     end
+
+
 end

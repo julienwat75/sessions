@@ -9,6 +9,7 @@ class CreateOffres < ActiveRecord::Migration
       t.float :prix_medium
       t.float :prix_large
       t.references :profil, index: true
+      t.references :author, index: true
       t.timestamps
     end
   end
